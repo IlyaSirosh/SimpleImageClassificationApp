@@ -31,7 +31,7 @@ class ClassificationService: ObservableObject {
                 let request = try self.getRequest()
                 try handler.perform([request])
             } catch {
-                self.result = .unrecognized
+                self.setResultSafe(.unrecognized)
             }
         }
         
@@ -52,14 +52,26 @@ class ClassificationService: ObservableObject {
     
     private func processClassifications(for request: VNRequest, error: Error?) {
         guard let results = request.results else {
-            result = .unrecognized
+            self.setResultSafe(.unrecognized)
             return
         }
         
         let classifications = results as! [VNClassificationObservation]
         
         if let mostPossibleClassification = classifications.first {
-            result = .recognized(mostPossibleClassification.identifier)
+            let title = self.extractFirstTitle(from: mostPossibleClassification.identifier)
+  
+            self.setResultSafe(.recognized(title))
+        }
+    }
+    
+    private func extractFirstTitle(from string: String) -> String {
+        return String(string.split(separator: ",").first ?? "")
+    }
+    
+    private func setResultSafe(_ result: ClassificationResult) {
+        DispatchQueue.main.async {
+            self.result = result
         }
     }
 }

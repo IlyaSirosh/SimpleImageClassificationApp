@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		49EE345225B2A59900509FC6 /* ClassificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE345125B2A59900509FC6 /* ClassificationService.swift */; };
 		49EE345525B2A61000509FC6 /* ClassificationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EE345425B2A61000509FC6 /* ClassificationResult.swift */; };
 		49EE345925B2B20B00509FC6 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 49EE345825B2B20B00509FC6 /* MobileNetV2.mlmodel */; };
+		49EE346125B2BD6E00509FC6 /* ImagePickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 49EE346025B2BD6E00509FC6 /* ImagePickerView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EE346125B2BD6E00509FC6 /* ImagePickerView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,9 @@
 			dependencies = (
 			);
 			name = ImageClassifier;
+			packageProductDependencies = (
+				49EE346025B2BD6E00509FC6 /* ImagePickerView */,
+			);
 			productName = ImageClassifier;
 			productReference = 49EE343E25B2A4D400509FC6 /* ImageClassifier.app */;
 			productType = "com.apple.product-type.application";
@@ -121,6 +126,9 @@
 				Base,
 			);
 			mainGroup = 49EE343525B2A4D400509FC6;
+			packageReferences = (
+				49EE345F25B2BD6E00509FC6 /* XCRemoteSwiftPackageReference "ImagePickerView" */,
+			);
 			productRefGroup = 49EE343F25B2A4D400509FC6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -340,6 +348,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49EE345F25B2BD6E00509FC6 /* XCRemoteSwiftPackageReference "ImagePickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ralfebert/ImagePickerView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49EE346025B2BD6E00509FC6 /* ImagePickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49EE345F25B2BD6E00509FC6 /* XCRemoteSwiftPackageReference "ImagePickerView" */;
+			productName = ImagePickerView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49EE343625B2A4D400509FC6 /* Project object */;
 }
