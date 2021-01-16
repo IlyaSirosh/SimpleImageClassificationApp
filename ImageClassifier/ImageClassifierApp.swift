@@ -12,6 +12,7 @@ struct ImageClassifierApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ClassificationService(with: MobileNetV2().model))
         }
     }
 }
